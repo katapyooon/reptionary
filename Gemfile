@@ -31,11 +31,20 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'devise' #ユーザーがログインしてアプリを使えるようにしたい
-gem 'pry-rails' #デバッグの王様binding.pry
-gem 'sprockets' #stylesheetやjsをまとめてくれるやつ
-gem 'haml-rails' #html.erbではなくhtml.hamlで書く人用
-gem 'carrierwave'  #画像アップロードしたい人はこちらもどうぞ
+# ユーザーがログインしてアプリを使えるようにしたい
+gem "devise"
+
+# デバッグの王様binding.pry
+gem "pry-rails"
+
+# stylesheetやjsをまとめてくれるやつ
+gem "sprockets"
+
+# html.erbではなくhtml.hamlで書く人用
+gem "haml-rails"
+
+# 画像アップロードしたい人はこちらもどうぞ
+gem "carrierwave"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
