@@ -46,6 +46,9 @@ gem "haml-rails"
 # 画像アップロードしたい人はこちらもどうぞ
 gem "carrierwave"
 
+# ハッシュ化
+gem 'bcrypt',  '3.1.12'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
