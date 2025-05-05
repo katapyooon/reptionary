@@ -99,3 +99,9 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+
+      - name: Set up database
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+          bin/rails db:test:prepare
