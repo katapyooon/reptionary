@@ -7,16 +7,13 @@ Rails.application.routes.draw do
   end
 
   # ログインしていない場合のルートを設定
-  unauthenticated do
-    root to: "devise/sessions#new", as: :unauthenticated_root
-  end
-
   devise_scope :user do
-    get "/users/sign_out", to: "devise/sessions#destroy"
+    unauthenticated do
+      root to: "devise/sessions#new", as: :unauthenticated_root
+    end
   end
 
-  # manifest.json のルートを追加
+  # その他のルート
   get "/manifest.json", to: "application#manifest"
-
   get "home/index"
 end

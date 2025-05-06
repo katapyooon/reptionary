@@ -1,0 +1,41 @@
+.dli-home {
+    position: fixed; /* 画面に固定表示 */
+    top: 40px;       /* 画面上部からの距離 */
+    left: 50%;       /* 画面の横方向の中央 */
+    transform: translateX(-50%); /* 中央揃え */
+    width: 1em;
+    height: 0.75em;
+    border: 0.1em solid currentColor;
+    border-top: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1;
+  }
+  
+  .dli-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0.70711em;
+    height: 0.70711em;
+    border: 0.1em solid currentColor;
+    border-right: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translate(-50%, -46%) rotate(45deg) skew(-10deg, -10deg);
+  }
+  
+  .dli-home::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -0.1em;
+    width: 45%;
+    height: 75%;
+    background: #f0f0f0;;
+    border: 0.1em solid currentColor;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+  }
