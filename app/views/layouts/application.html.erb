@@ -21,3 +21,12 @@
     <%= yield %>
   </body>
 </html>
+
+<% if user_signed_in? %>
+  <p>
+    ログイン中: <%= current_user.id %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  </p>
+<% else %>
+  <%= link_to "ログイン", new_user_session_path %>
+<% end %>
