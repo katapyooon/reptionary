@@ -1,11 +1,8 @@
 .dli-home {
-    position: fixed; /* 画面に固定表示 */
-    top: 40px;       /* 画面上部からの距離 */
-    left: 50%;       /* 画面の横方向の中央 */
-    transform: translateX(-50%); /* 中央揃え */
-    width: 1em;
-    height: 0.75em;
-    border: 0.1em solid currentColor;
+    position: relative; /* 親要素内での配置に変更 */
+    width: 50px; /* サイズを元に戻す */
+    height: 50px;
+    border: 0.2em solid currentColor;
     border-top: 0;
     box-sizing: border-box;
     color: #333;
@@ -17,16 +14,16 @@
     position: absolute;
     top: 0;
     left: 50%;
-    width: 0.70711em;
-    height: 0.70711em;
-    border: 0.1em solid currentColor;
+    width: 2.5em; /* 屋根の幅を大きくする */
+    height: 2.5em; /* 屋根の高さを大きくする */
+    border: 0.2em solid currentColor;
     border-right: 0;
     border-bottom: 0;
     box-sizing: border-box;
     transform: translate(-50%, -46%) rotate(45deg) skew(-10deg, -10deg);
-  }
+}
   
-  .dli-home::after {
+.dli-home::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -38,4 +35,11 @@
     border-bottom: 0;
     box-sizing: border-box;
     transform: translateX(-50%);
-  }
+}
+
+.icon-container {
+    display: flex; /* 子要素を横並びにする */
+    justify-content: center; /* 子要素を中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    gap: 20px; /* アイコン間のスペース */
+}
