@@ -1,0 +1,33 @@
+#star-five {
+    position: relative;
+    width: 50px; /* home-icon と同じ幅 */
+    height: 50px; /* home-icon と同じ高さ */
+    background-color: transparent; /* 背景を透明に */
+  }
+  
+#star-five:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px; /* 星型の幅を調整 */
+    height: 50px; /* 星型の高さを調整 */
+    clip-path: polygon(
+      50% 0%, 61% 35%, 98% 35%, 68% 57%,
+      79% 91%, 50% 70%, 21% 91%, 32% 57%,
+      2% 35%, 39% 35%
+    ); /* 星型を描画 */
+    background-color: black; /* 星の色 */
+  }
+  
+#star-five:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: -105px;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    transform: rotate(-70deg);
+  }
+
