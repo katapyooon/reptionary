@@ -1,0 +1,41 @@
+.dli-user-circle {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    width: 3em; /* サイズを調整 */
+    height: 3em; /* サイズを調整 */
+    border: 0.2em solid currentColor; /* 枠線を調整 */
+    border-radius: 50%; /* 丸い形 */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dli-user-circle > span {
+    position: absolute;
+    top: 50%; /* 中央揃え */
+    left: 50%; /* 中央揃え */
+    transform: translate(-50%, -50%); /* 中央揃え */
+}
+
+.dli-user-circle > span::before {
+    content: '';
+    display: block;
+    width: 1em; /* 顔のサイズ */
+    height: 1em; /* 顔のサイズ */
+    border-radius: 50%; /* 丸い形 */
+    background-color: currentColor; /* 顔の色 */
+    margin-bottom: 0.2em; /* 顔と肩の間隔 */
+    transform: translate(15%, 0); /* 少し右にずらす */
+}
+
+.dli-user-circle > span::after {
+    content: '';
+    display: block;
+    width: 1.5em; /* 肩の幅 */
+    height: 0.75em; /* 肩の高さ */
+    border-radius: 50% / 100% 100% 0 0; /* 半円形 */
+    background-color: currentColor; /* 肩の色 */
+    margin: 0 auto; /* 中央揃え */
+}
