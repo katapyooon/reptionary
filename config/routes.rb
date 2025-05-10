@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # その他のルート
   get "/manifest.json", to: "application#manifest"
   get "home/index"
+
+  # ユーザーごとの my_reptiles ページ
+  get 'users/:user_id/my_reptiles', to: 'my_reptiles#top', as: :user_my_reptiles
 end
