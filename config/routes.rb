@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get "home/index"
 
   # ユーザーごとの my_reptiles ページ
-  get 'users/:user_id/my_reptiles', to: 'my_reptiles#top', as: :user_my_reptiles
+  get "users/:user_id/my_reptiles", to: "my_reptiles#top", as: :user_my_reptiles
 end
