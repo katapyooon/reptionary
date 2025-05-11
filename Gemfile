@@ -46,6 +46,11 @@ gem "haml-rails"
 # 画像アップロードしたい人はこちらもどうぞ
 gem "carrierwave"
 
+# 脆弱性が検出されたので、rackのバージョンを上げる
+gem "rack", ">= 3.1.14"
+gem "rack-session", ">= 2.1.1"
+
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
