@@ -1,7 +1,12 @@
-%h1 My Reptiles
-%p This is the My Reptiles page.
-
 - @reptiles.each do |reptile|
   %div
     %h2= reptile.name
     %p= reptile.description
+
+%div.my-reptiles-top
+  %h1 My Reptiles
+
+  - @reptiles.each do |reptile|
+    %div
+      %h2= reptile.name
+      %p= reptile.description
