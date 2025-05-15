@@ -5,8 +5,10 @@
 
 %div.my-reptiles-top
   %h1 My Reptiles
+  %div.dli-plus-circle
+    %span
 
   - @reptiles.each do |reptile|
     %div
       %h2= reptile.name
-      %p= reptile.description
+      %p= reptile.description 
