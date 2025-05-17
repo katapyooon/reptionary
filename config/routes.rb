@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 
   # ユーザーごとの my_reptiles ページ
   get "users/:user_id/my_reptiles", to: "my_reptiles#top", as: :user_my_reptiles
+
+  # ユーザーの爬虫類を作成・表示するページ
+  get "create_my_reptile", to: "my_reptiles#new", as: :new_my_reptile
+  post "create_my_reptile", to: "my_reptiles#create", as: :create_my_reptile
 end

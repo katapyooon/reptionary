@@ -1,0 +1,13 @@
+%h1 Add a New Reptile
+
+= form_with model: @my_reptile, url: create_my_reptile_path, local: true do |f|
+  .field
+    = f.label :name, "Reptile Name"
+    = f.text_field :name
+
+  .field
+    = f.label :description, "Description"
+    = f.text_area :description
+
+  .actions
+    = f.submit "Create Reptile"
