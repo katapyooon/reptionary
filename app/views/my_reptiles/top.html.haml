@@ -2,6 +2,8 @@
   %div
     %h2= reptile.name
     %p= reptile.description
+    - if reptile.image.present?
+      %img{ src: reptile.image.url, alt: reptile.name, class: "reptile-image" }
 
 %div.my-reptiles-top
   %h1 My Reptiles
