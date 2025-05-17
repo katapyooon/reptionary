@@ -22,6 +22,6 @@ class MyReptilesController < ApplicationController
     private
 
     def my_reptile_params
-      params.require(:my_reptile).permit(:name, :description)
+      params.require(:my_reptile).permit(:name, :description, :image)
     end
 end
