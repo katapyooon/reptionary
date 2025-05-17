@@ -5,8 +5,9 @@
 
 %div.my-reptiles-top
   %h1 My Reptiles
-  %div.dli-plus-circle
-    %span
+  = link_to new_my_reptile_path, class: "dli-plus-circle" do
+    %div.dli-plus-circle
+      %span
 
   - @reptiles.each do |reptile|
     %div

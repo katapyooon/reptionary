@@ -9,6 +9,7 @@
     border: 0.1em solid currentColor;
     border-radius: 50%;
     box-sizing: content-box;
+    cursor: pointer; /* ホバー時にポインタを表示 */
   }
   
   .dli-plus-circle > span {
