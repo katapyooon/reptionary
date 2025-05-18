@@ -1,17 +1,18 @@
-%h1 Add a New Reptile
+%div.create-my-reptile
+  %h1 Add a New Reptile
 
-= form_with model: @my_reptile, url: create_my_reptile_path, local: true do |f|
-  .field
-    = f.label :name, "Reptile Name"
-    = f.text_field :name
+  = form_with model: @my_reptile, url: create_my_reptile_path, local: true do |f|
+    .field
+      = f.label :name, "Reptile Name"
+      = f.text_field :name
 
-  .field
-    = f.label :description, "Description"
-    = f.text_area :description
+    .field
+      = f.label :description, "Description"
+      = f.text_area :description
 
-  .field
-    = f.label :image, "Upload Image"
-    = f.file_field :image
+    .field
+      = f.label :image, "Upload Image"
+      = f.file_field :image
 
-  .actions
-    = f.submit "Create Reptile"
+    .actions
+      = f.submit "Create Reptile"

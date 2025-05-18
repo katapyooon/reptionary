@@ -1,0 +1,6 @@
+.create-my-reptile {
+    background-color: lightblue; /* 背景色を水色に設定 */
+    min-height: 100vh; /* ページ全体を覆う高さを確保 */
+    margin: 0;
+    padding: 20px; /* 必要に応じて余白を追加 */
+}
