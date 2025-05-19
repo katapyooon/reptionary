@@ -3,12 +3,25 @@
 
   = form_with model: @my_reptile, url: create_my_reptile_path, local: true do |f|
     .field
-      = f.label :name, "Reptile Name"
+      = f.label :name, "名前"
       = f.text_field :name
 
     .field
-      = f.label :description, "Description"
-      = f.text_area :description
+      = f.label :name, "種類"
+      = f.text_field :name
+
+    .field
+      = f.label :description, "モルフ"
+      = f.text_field :name
+
+    .field
+      = f.label :birthday, "誕生日"
+      = f.date_field :birthday
+
+    .field
+      = f.label :adoption_date, "お迎え日"
+      = f.date_field :adoption_date
+
 
     .field
       = f.label :image, "Upload Image"
