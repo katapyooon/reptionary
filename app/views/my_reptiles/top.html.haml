@@ -20,3 +20,4 @@
       %p 性別: #{reptile.gender}
       - if reptile.image.present?
         %img{ src: reptile.image.url, alt: reptile.name, class: "reptile-image" }
+      = link_to "Delete", my_reptile_path(reptile), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link"
