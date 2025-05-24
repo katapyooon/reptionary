@@ -1,0 +1,7 @@
+%h1= @my_reptile.name
+%p= @my_reptile.description
+%p 誕生日: #{@my_reptile.birthday}
+%p お迎え日: #{@my_reptile.adoption_date}
+%p 性別: #{@my_reptile.gender}
+- if @my_reptile.image.present?
+  %img{ src: @my_reptile.image.url, alt: @my_reptile.name }

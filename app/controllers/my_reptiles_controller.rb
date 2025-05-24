@@ -21,6 +21,20 @@ class MyReptilesController < ApplicationController
         end
     end
 
+    def destroy
+        @my_reptile = MyReptile.find(params[:id])
+        if @my_reptile.user == current_user # ユーザーが所有者であることを確認
+          @my_reptile.destroy
+          redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "Reptile was successfully deleted."
+        else
+          redirect_to my_reptiles_top_path(user_id: current_user.id), alert: "Failed to delete reptile."
+        end
+    end
+
+    def show
+        @my_reptile = MyReptile.find(params[:id])
+    end
+
     private
 
     def my_reptile_params
