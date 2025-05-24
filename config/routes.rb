@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   post "create_my_reptile", to: "my_reptiles#create", as: :create_my_reptile
 
   # マイページの爬虫類一覧
-  get 'my_reptiles/top', to: 'my_reptiles#top', as: :my_reptiles_top
-  resources :my_reptiles, only: [:new, :create]
+  get "my_reptiles/top", to: "my_reptiles#top", as: :my_reptiles_top
+  resources :my_reptiles, only: [ :new, :create ]
 end
