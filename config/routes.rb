@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   # ユーザーの爬虫類を作成・表示するページ
   get "create_my_reptile", to: "my_reptiles#new", as: :new_my_reptile
   post "create_my_reptile", to: "my_reptiles#create", as: :create_my_reptile
+
+  # マイページの爬虫類一覧
+  get "my_reptiles/top", to: "my_reptiles#top", as: :my_reptiles_top
+  resources :my_reptiles, only: [ :new, :create ]
 end

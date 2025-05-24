@@ -1,7 +1,11 @@
 %div.create-my-reptile
   %h1 Add a New Reptile
 
-  = form_with model: @my_reptile, url: create_my_reptile_path, local: true do |f|
+  = form_with model: @my_reptile, url: create_my_reptile_path, local: true, html: { multipart: true } do |f|
+    .field
+      = f.label :image, "Upload Image"
+      = f.file_field :image
+    
     .field
       = f.label :name, "名前"
       = f.text_field :name
@@ -25,10 +29,6 @@
     .field
       = f.label :gender, "性別"
       = f.select :gender, [["オス", "male"], ["メス", "female"], ["不明", "unknown"]], prompt: "選択してください"
-
-    .field
-      = f.label :image, "Upload Image"
-      = f.file_field :image
 
     .actions
       = f.submit "Create Reptile"

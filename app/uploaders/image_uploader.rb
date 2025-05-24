@@ -8,6 +8,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  # filter to limit the types of files that can be uploaded.
+  def extension_allowlist
+    %w[jpg jpeg gif png]
+  end
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir

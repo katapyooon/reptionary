@@ -12,8 +12,10 @@ class MyReptilesController < ApplicationController
         @my_reptile = MyReptile.new(my_reptile_params)
         @my_reptile.user = current_user # ログイン中のユーザーを関連付け
 
+        Rails.logger.debug "Uploaded image: #{params[:my_reptile][:image].inspect}"
+
         if @my_reptile.save
-          redirect_to my_reptiles_top_path, notice: "Reptile was successfully created."
+          redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "Reptile was successfully created."
         else
           render :new, status: :unprocessable_entity
         end
@@ -22,6 +24,6 @@ class MyReptilesController < ApplicationController
     private
 
     def my_reptile_params
-      params.require(:my_reptile).permit(:name, :description, :image)
+        params.require(:my_reptile).permit(:image, :name, :birthday, :adoption_date, :gender)
     end
 end
