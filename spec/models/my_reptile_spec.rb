@@ -11,7 +11,7 @@ RSpec.describe MyReptile, type: :model do
       adoption_date: "2025-05-22",
       gender: "male",
       image: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/files/sample_image.jpg"), "image/jpeg"),
-      user: user
+      user: create(:user)
     )
     expect(my_reptile).to be_valid
   end
