@@ -6,6 +6,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   # include CarrierWave::Vips
 
+  # テスト環境ではファイルシステムを使用
+  if Rails.env.test?
+    storage :file
+  else
+    storage :file  # または :fog など
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -27,6 +34,10 @@ class ImageUploader < CarrierWave::Uploader::Base
         img
       end
     end
+  end
+
+  def default_url
+    "/images/fallback/" + [ version_name, "default.png" ].compact.join("_")
   end
 
   # filter to limit the types of files that can be uploaded.
