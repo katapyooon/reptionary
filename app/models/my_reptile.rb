@@ -8,4 +8,7 @@ class MyReptile < ApplicationRecord
 
   # CarrierWave アップローダーをマウント
   mount_uploader :image, ImageUploader
+
+  # Crop用の属性を追加
+  attr_accessor :crop_x, :crop_y, :crop_width, :crop_height
 end

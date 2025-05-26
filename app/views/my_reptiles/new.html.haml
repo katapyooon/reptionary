@@ -4,8 +4,15 @@
   = form_with model: @my_reptile, url: create_my_reptile_path, local: true, html: { multipart: true } do |f|
     .field
       = f.label :image, "Upload Image"
-      = f.file_field :image
-    
+      = f.file_field :image, id: "image-upload"
+
+    %div#circle-preview
+      %div.circle-frame
+        %img#circle-image{ src: "", alt: "Preview", style: "display: none;" }
+
+    %div#image-preview
+      %img#cropper-image{ src: "", style: "display: none;" }
+
     .field
       = f.label :name, "名前"
       = f.text_field :name
@@ -31,4 +38,8 @@
       = f.select :gender, [["オス", "male"], ["メス", "female"], ["不明", "unknown"]], prompt: "選択してください"
 
     .actions
+      = f.hidden_field :crop_x
+      = f.hidden_field :crop_y
+      = f.hidden_field :crop_width
+      = f.hidden_field :crop_height
       = f.submit "Create Reptile"

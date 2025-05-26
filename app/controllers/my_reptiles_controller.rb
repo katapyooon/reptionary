@@ -38,6 +38,6 @@ class MyReptilesController < ApplicationController
     private
 
     def my_reptile_params
-        params.require(:my_reptile).permit(:image, :name, :birthday, :adoption_date, :gender)
+        params.require(:my_reptile).permit(:image, :name, :description, :birthday, :adoption_date, :gender, :crop_x, :crop_y, :crop_width, :crop_height)
     end
 end

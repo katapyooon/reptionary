@@ -79,11 +79,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # ImageMagick のインストールを追加
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      # テスト用の画像ディレクトリを作成
+      - name: Setup test directories
+        run: |
+          mkdir -p spec/fixtures/files
+          mkdir -p public/uploads/test
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
 
       - name: Run tests
         env:

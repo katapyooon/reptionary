@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MyReptile, type: :model do
-  let(:user) { User.create!(email: "test@example.com", password: "password") }
-
   it "is valid with valid attributes" do
+    user = create(:user)
     my_reptile = MyReptile.new(
       name: "Gecko",
       description: "A small lizard",
