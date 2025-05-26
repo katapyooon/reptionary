@@ -45,6 +45,7 @@ gem "haml-rails"
 
 # 画像アップロードしたい人はこちらもどうぞ
 gem "carrierwave"
+gem "mini_magick"
 
 # 脆弱性が検出されたので、rackのバージョンを上げる
 gem "rack", ">= 3.1.14"

@@ -1,4 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  # Include RMagick or MiniMagick support:
+  include CarrierWave::MiniMagick
   # Include RMagick, MiniMagick, or Vips support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -7,6 +9,25 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+
+  process :crop
+
+  version :icon do
+    process resize_to_fill: [ 150, 150 ]
+  end
+
+  def crop
+    if model.crop_x.present?
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        width = model.crop_width.to_i
+        height = model.crop_height.to_i
+        img.crop("#{width}x#{height}+#{x}+#{y}")
+        img
+      end
+    end
+  end
 
   # filter to limit the types of files that can be uploaded.
   def extension_allowlist

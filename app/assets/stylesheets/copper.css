@@ -1,0 +1,48 @@
+/*!
+ * Cropper.js v1.5.13
+ */
+
+ .cropper-container {
+    direction: ltr;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    touch-action: none;
+    user-select: none;
+  }
+  
+  .cropper-wrap-box,
+  .cropper-canvas,
+  .cropper-drag-box,
+  .cropper-crop-box,
+  .cropper-modal {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .cropper-wrap-box,
+  .cropper-canvas {
+    overflow: hidden;
+  }
+  
+  .cropper-drag-box {
+    background-color: #fff;
+    opacity: 0;
+  }
+  
+  .cropper-modal {
+    background-color: #000;
+    opacity: 0.5;
+  }
+  
+  .cropper-view-box {
+    display: block;
+    height: 100%;
+    outline: 1px solid #39f;
+    outline-color: rgba(51, 153, 255, 0.75);
+    overflow: hidden;
+    width: 100%;
+  }
