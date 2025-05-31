@@ -30,4 +30,7 @@ Rails.application.routes.draw do
       get "my_reptiles/top", to: "my_reptiles#top", as: :my_reptiles_top
     end
   end
+
+  get "my_reptiles/top/:user_id", to: "my_reptiles#top", as: "my_reptiles_top"
+  resources :my_reptiles
 end

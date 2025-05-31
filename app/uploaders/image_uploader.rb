@@ -25,6 +25,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def crop
     if model.crop_x.present?
+      Rails.logger.debug "Cropping with parameters: x=#{model.crop_x}, y=#{model.crop_y}, width=#{model.crop_width}, height=#{model.crop_height}"
       manipulate! do |img|
         x = model.crop_x.to_i
         y = model.crop_y.to_i
@@ -33,6 +34,8 @@ class ImageUploader < CarrierWave::Uploader::Base
         img.crop("#{width}x#{height}+#{x}+#{y}")
         img
       end
+    else
+      Rails.logger.debug "No crop parameters present"
     end
   end
 
