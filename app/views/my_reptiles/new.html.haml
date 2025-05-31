@@ -5,13 +5,23 @@
     .field
       = f.label :image, "Upload Image"
       = f.file_field :image, id: "image-upload"
+      = f.hidden_field :crop_x, id: "my_reptile_crop_x"
+      = f.hidden_field :crop_y, id: "my_reptile_crop_y"
+      = f.hidden_field :crop_width, id: "my_reptile_crop_width"
+      = f.hidden_field :crop_height, id: "my_reptile_crop_height"
 
     %div#circle-preview
       %div.circle-frame
         %img#circle-image{ src: "", alt: "Preview", style: "display: none;" }
 
-    %div#image-preview
-      %img#cropper-image{ src: "", style: "display: none;" }
+    %div#crop-modal.modal
+      %div.modal-content
+        %span.close-button &times;
+        %h2 画像の範囲を選択
+        %div.cropper-container
+          %img#cropper-image{ src: "", style: "display: none;" }
+        %button#save-crop.save-button{type: "button"} 確定
+
 
     .field
       = f.label :name, "名前"
