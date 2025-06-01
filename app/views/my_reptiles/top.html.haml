@@ -9,16 +9,17 @@
       
       - @my_reptiles.each do |reptile|
         .reptile-item
-          .circle-frame
-            - if reptile.image.present?
-              = image_tag reptile.image.url(:icon), class: "reptile-image"
-            - else
-              .default-circle
-                %i.fas.fa-dragon
-          .reptile-info
-            %h2= reptile.name
-            = button_to "Delete", 
-              my_reptile_path(reptile), 
-              method: :delete,
-              form: { data: { turbo_confirm: "本当に削除しますか？" } },
-              class: "delete-button"
+          = link_to my_reptile_path(reptile), class: "reptile-link" do
+            .circle-frame
+              - if reptile.image.present?
+                = image_tag reptile.image.url(:icon), class: "reptile-image"
+              - else
+                .default-circle
+                  %i.fas.fa-dragon
+            .reptile-info
+              %h2= reptile.name
+          = button_to "Delete", 
+            my_reptile_path(reptile), 
+          　method: :delete,
+            form: { data: { turbo_confirm: "本当に削除しますか？" } },
+            class: "delete-button"
