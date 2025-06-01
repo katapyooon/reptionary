@@ -12,7 +12,7 @@ class MyReptilesController < ApplicationController
         @my_reptile.user = current_user
 
         if @my_reptile.save
-        # 成功時は my_reptiles_top_path にリダイレクト
+          # 成功時は my_reptiles_top_path にリダイレクト
           redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "爬虫類を登録しました"
         else
           render :new, status: :unprocessable_entity
