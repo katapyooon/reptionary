@@ -1,23 +1,23 @@
 class MyReptilesController < ApplicationController
     def top
-      @user = User.find(params[:user_id]) # ユーザーを取得
-      @reptiles = @user.my_reptiles # ユーザーに関連する Reptile を取得
+      @my_reptiles = current_user.my_reptiles.all
     end
 
     def new
         @my_reptile = MyReptile.new
       end
 
-      def create
+    def create
         @my_reptile = MyReptile.new(my_reptile_params)
         @my_reptile.user = current_user
 
         if @my_reptile.save
-          redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "Reptile was successfully created."
+          # 成功時は my_reptiles_top_path にリダイレクト
+          redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "爬虫類を登録しました"
         else
           render :new, status: :unprocessable_entity
         end
-      end
+    end
 
     def destroy
         @my_reptile = MyReptile.find(params[:id])
