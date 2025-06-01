@@ -21,21 +21,21 @@ class MyReptilesController < ApplicationController
 
     def destroy
       @my_reptile = MyReptile.find(params[:id])
-      
+
       if @my_reptile.user == current_user
         if @my_reptile.destroy
           respond_to do |format|
-            format.html { redirect_to my_reptiles_top_path(user_id: current_user.id), notice: '削除しました' }
+            format.html { redirect_to my_reptiles_top_path(user_id: current_user.id), notice: "削除しました" }
             format.turbo_stream
           end
         else
           respond_to do |format|
-            format.html { redirect_to my_reptiles_top_path(user_id: current_user.id), alert: '削除に失敗しました' }
-            format.turbo_stream { render turbo_stream: turbo_stream.replace("reptile-#{@my_reptile.id}", partial: 'reptile', locals: { reptile: @my_reptile }) }
+            format.html { redirect_to my_reptiles_top_path(user_id: current_user.id), alert: "削除に失敗しました" }
+            format.turbo_stream { render turbo_stream: turbo_stream.replace("reptile-#{@my_reptile.id}", partial: "reptile", locals: { reptile: @my_reptile }) }
           end
         end
       else
-        redirect_to my_reptiles_top_path(user_id: current_user.id), alert: '権限がありません'
+        redirect_to my_reptiles_top_path(user_id: current_user.id), alert: "権限がありません"
       end
     end
 
