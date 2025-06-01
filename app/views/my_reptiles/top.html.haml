@@ -1,23 +1,23 @@
-- @reptiles.each do |reptile|
-  %div
-    %h2= reptile.name
-    %p= reptile.description
-    - if reptile.image.present?
-      %img{ src: reptile.image.url, alt: reptile.name, class: "reptile-image" }
-
-%div.my-reptiles-top
+.my-reptiles-top
   %h1 My Reptiles
-  = link_to new_my_reptile_path, class: "dli-plus-circle" do
-    %div.dli-plus-circle
-      %span
-
-  - @reptiles.each do |reptile|
-    %div
-      %h2= reptile.name
-      %p= reptile.description
-      %p 誕生日: #{reptile.birthday}
-      %p お迎え日: #{reptile.adoption_date}
-      %p 性別: #{reptile.gender}
-      - if reptile.image.present?
-        %img{ src: reptile.image.url, alt: reptile.name, class: "reptile-image" }
-      = link_to "Delete", my_reptile_path(reptile), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link"
+  .my-reptiles-container
+    .reptiles-grid
+      .reptile-item
+        = link_to create_my_reptile_path, class: "add-button" do
+          %i.fas.fa-plus
+          %span 爬虫類を追加
+      
+      - @my_reptiles.each do |reptile|
+        .reptile-item
+          .circle-frame
+            - if reptile.image.present?
+              = image_tag reptile.image.url(:icon), class: "reptile-image"
+            - else
+              .default-circle
+                %i.fas.fa-dragon
+          .reptile-info
+            %h2= reptile.name
+            = link_to "Delete", my_reptile_path(reptile), 
+              method: :delete, 
+              data: { confirm: "Are you sure?" }, 
+              class: "delete-link"
