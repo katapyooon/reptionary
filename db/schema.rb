@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_26_145102) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_01_065520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_26_145102) do
     t.float "crop_y"
     t.float "crop_width"
     t.float "crop_height"
+    t.string "species"
+    t.string "morph"
     t.index ["user_id"], name: "index_my_reptiles_on_user_id"
   end
 
