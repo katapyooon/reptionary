@@ -1,7 +1,26 @@
-%h1= @my_reptile.name
-%p= @my_reptile.description
-%p 誕生日: #{@my_reptile.birthday}
-%p お迎え日: #{@my_reptile.adoption_date}
-%p 性別: #{@my_reptile.gender}
-- if @my_reptile.image.present?
-  %img{ src: @my_reptile.image.url, alt: @my_reptile.name }
+.reptile-detail
+  .reptile-header
+    .circle-frame
+      - if @my_reptile.image.present?
+        = image_tag @my_reptile.image.url, class: "reptile-image"
+      - else
+        .default-circle
+          %i.fas.fa-dragon
+    
+    %h1= @my_reptile.name
+
+  .reptile-info
+    .info-item
+      %label 種類：
+      %span= @my_reptile.species
+    
+    .info-item
+      %label モルフ：
+      %span= @my_reptile.morph
+    
+    .info-item
+      %label 性別：
+      %span= @my_reptile.gender.present? ? @my_reptile.gender : "未設定"
+
+  .actions
+    = link_to "戻る", my_reptiles_top_path(user_id: current_user.id), class: "back-button"
