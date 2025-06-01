@@ -4,7 +4,7 @@ class MyReptile < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   # 画像のバリデーションは常に適用
-  validates :image, presence: true
+  validates :image, presence: true, if: :new_record?
 
   # 他のバリデーションは保存時のみ適用
   with_options on: :save_with_validation do

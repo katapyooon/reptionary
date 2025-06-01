@@ -96,6 +96,7 @@ jobs:
         run: |
           mkdir -p spec/fixtures/files
           mkdir -p public/uploads/test
+          convert -size 100x100 xc:white spec/fixtures/files/test_image.jpg
 
       - name: Install dependencies
         run: |
