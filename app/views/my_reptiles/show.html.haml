@@ -22,5 +22,21 @@
       %label 性別：
       %span= @my_reptile.gender.present? ? @my_reptile.gender : "未設定"
 
+    .info-item
+      %label 生後：
+      %span
+        - if @my_reptile.days_since_birth
+          = "#{@my_reptile.days_since_birth}日"
+        - else
+          未設定
+
+    .info-item
+      %label お迎えから：
+      %span
+        - if @my_reptile.days_since_adoption
+          = "#{@my_reptile.days_since_adoption}日"
+        - else
+          未設定
+
   .actions
     = link_to "戻る", my_reptiles_top_path(user_id: current_user.id), class: "back-button"

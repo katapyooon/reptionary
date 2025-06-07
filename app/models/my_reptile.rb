@@ -14,4 +14,14 @@ class MyReptile < ApplicationRecord
   end
 
   attr_accessor :crop_x, :crop_y, :crop_width, :crop_height
+
+  def days_since_birth
+    return nil unless birthday.present?
+    (Date.current - birthday).to_i
+  end
+
+  def days_since_adoption
+    return nil unless adoption_date.present?
+    (Date.current - adoption_date).to_i
+  end
 end
