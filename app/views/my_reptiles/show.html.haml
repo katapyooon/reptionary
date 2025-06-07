@@ -40,4 +40,5 @@
             未設定
 
   .actions
+    = link_to "編集", edit_my_reptile_path(@my_reptile), class: "edit-button"
     = link_to "戻る", my_reptiles_top_path(user_id: current_user.id), class: "back-button"

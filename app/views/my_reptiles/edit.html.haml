@@ -1,0 +1,31 @@
+.reptile-detail
+  .reptile-content
+    %h1 爬虫類情報の編集
+    = form_with model: @my_reptile, url: update_my_reptile_path(@my_reptile), method: :patch, local: true do |f|
+      .field
+        = f.label :name, "名前"
+        = f.text_field :name
+      
+      .field
+        = f.label :species, "種類"
+        = f.text_field :species
+      
+      .field
+        = f.label :morph, "モルフ"
+        = f.text_field :morph
+      
+      .field
+        = f.label :gender, "性別"
+        = f.select :gender, [["オス", "male"], ["メス", "female"], ["不明", "unknown"]], prompt: "選択してください"
+      
+      .field
+        = f.label :birthday, "誕生日"
+        = f.date_field :birthday
+      
+      .field
+        = f.label :adoption_date, "お迎え日"
+        = f.date_field :adoption_date
+
+      .actions
+        = f.submit "更新する", class: "update-button"
+        = link_to "戻る", my_reptile_path(@my_reptile), class: "back-button"

@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/my_reptiles/:id/edit", to: "my_reptiles#edit", as: "edit_my_reptile"
+  patch "/my_reptiles/:id", to: "my_reptiles#update", as: "update_my_reptile"
+
   get "my_reptiles/top/:user_id", to: "my_reptiles#top", as: "my_reptiles_top"
   resources :my_reptiles
 end
