@@ -43,6 +43,19 @@ class MyReptilesController < ApplicationController
         @my_reptile = MyReptile.find(params[:id])
     end
 
+    def edit
+      @my_reptile = MyReptile.find(params[:id])
+    end
+
+    def update
+      @my_reptile = MyReptile.find(params[:id])
+      if @my_reptile.update(my_reptile_params)
+        redirect_to my_reptile_path(@my_reptile), notice: "更新しました"
+      else
+        render :edit
+      end
+    end
+
     private
 
     def my_reptile_params
