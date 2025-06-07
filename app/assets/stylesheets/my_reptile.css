@@ -170,6 +170,28 @@
     transition: background-color 0.3s;
   }
   
-  .back-button:hover {
-    background-color: #5a6268;
-  }
+  /* ページ全体の背景色を設定 */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: lightblue;
+}
+
+/* 既存のreptile-detailクラスを修正 */
+.reptile-detail {
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  /* background-colorは削除（bodyで設定するため） */
+}
+
+/* コンテンツを中央に配置するためのコンテナ */
+.reptile-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
