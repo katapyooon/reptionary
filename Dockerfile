@@ -42,17 +42,23 @@ COPY Gemfile Gemfile.lock ./
 
 # Configure bundler and install dependencies
 RUN bundle config set --global force_ruby_platform true && \
-bundle config set --global without 'development test' && \
-bundle lock --add-platform ruby x86_64-linux && \
-bundle config set deployment 'true' && \
-bundle install --jobs 4 --retry 3
+    bundle config set --global without 'development test' && \
+    bundle config set deployment 'true' && \
+    bundle install --jobs 4 --retry 3
 
 # Copy the rest of the application
 COPY . .
 
-# Precompile assets using a dummy secret key
+# Precompile assets using a dummy secret key and dummy DB credentials
 RUN SECRET_KEY_BASE=dummy \
-bundle exec rails assets:precompile
+    DATABASE_PASSWORD=dummy \
+    DB_NAME=dummy \
+    DB_USERNAME=dummy \
+    DB_HOST=localhost \
+    bundle exec rails assets:precompile
+
+# Dockerfile
+COPY localhost.key localhost.crt /app/
 
 # Start the server
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
