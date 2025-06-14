@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "WishlistReptiles", type: :request do
   let(:user) { create(:user) }
-  
+
   before do
     sign_in user
   end
@@ -16,7 +16,7 @@ RSpec.describe "WishlistReptiles", type: :request do
 
   describe "GET /show" do
     let(:wishlist_reptile) { create(:wishlist_reptile, user: user) }
-    
+
     it "returns http success" do
       get user_wishlist_reptile_path(user, wishlist_reptile)
       expect(response).to have_http_status(:success)
