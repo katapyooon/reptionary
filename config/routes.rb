@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "wishlist_reptiles/index"
+  get "wishlist_reptiles/show"
+  get "wishlist_reptiles/new"
+  get "wishlist_reptiles/create"
+  get "wishlist_reptiles/edit"
+  get "wishlist_reptiles/update"
+  get "wishlist_reptiles/destroy"
   devise_for :users
 
   # ログイン後のルートを設定
