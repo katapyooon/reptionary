@@ -7,20 +7,20 @@ RSpec.describe "MyReptiles", type: :system do
   before do
     driven_by(:rack_test)
     sign_in user
-    visit my_reptiles_top_path(user_id: user.id)
+    visit user_my_reptiles_path(user)  # パスヘルパーを修正
   end
 
   describe 'トップページの表示' do
     it '爬虫類一覧が表示される' do
       within('.my-reptiles-top') do
         expect(page).to have_content('My Reptiles')
-        expect(page).to have_content(reptile.name)
+        expect(page).to have_css('.reptile-info h2', text: reptile.name)
       end
     end
 
     it '爬虫類追加ボタンが表示される' do
       within('.reptiles-grid') do
-        expect(page).to have_link('爬虫類を追加')
+        expect(page).to have_link('爬虫類を追加', class: 'add-button')
       end
     end
   end

@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'rails_helper'
 require 'devise'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -94,5 +95,13 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system, js: true) do
     driven_by :selenium_chrome_headless
+  end
+
+  config.before(:suite) do
+    # テスト実行前にテスト用の画像ファイルの存在を確認
+    fixture_file = Rails.root.join('spec', 'fixtures', 'files', 'test_image.jpg')
+    unless File.exist?(fixture_file)
+      raise "Test image file not found: #{fixture_file}"
+    end
   end
 end

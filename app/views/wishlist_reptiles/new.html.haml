@@ -1,0 +1,23 @@
+%h1 新しい欲しい爬虫類を登録
+
+= form_with(model: [@user, @wishlist_reptile], local: true) do |f|
+  .field
+    = f.label :species, "種類"
+    = f.text_field :species, required: true
+
+  .field
+    = f.label :morph, "モルフ"
+    = f.text_field :morph
+
+  .field
+    = f.label :priority, "優先度"
+    = f.number_field :priority
+
+  .field
+    = f.label :memo, "メモ"
+    = f.text_area :memo
+
+  .actions
+    = f.submit "登録"
+
+= link_to '戻る', user_wishlist_reptiles_path(@user)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_01_065520) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_15_003930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,5 +51,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_01_065520) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishlist_reptiles", force: :cascade do |t|
+    t.string "species"
+    t.string "morph"
+    t.integer "priority"
+    t.text "memo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlist_reptiles_on_user_id"
+  end
+
   add_foreign_key "my_reptiles", "users"
+  add_foreign_key "wishlist_reptiles", "users"
 end

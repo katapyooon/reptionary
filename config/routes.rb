@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "wishlist_reptiles/index"
+  get "wishlist_reptiles/show"
+  get "wishlist_reptiles/new"
+  get "wishlist_reptiles/create"
+  get "wishlist_reptiles/edit"
+  get "wishlist_reptiles/update"
+  get "wishlist_reptiles/destroy"
   devise_for :users
 
   # ログイン後のルートを設定
@@ -29,6 +36,11 @@ Rails.application.routes.draw do
     collection do
       get "my_reptiles/top", to: "my_reptiles#top", as: :my_reptiles_top
     end
+  end
+
+  # wishlist_reptiles のルーティング
+  resources :users do
+    resources :wishlist_reptiles
   end
 
   get "/my_reptiles/:id/edit", to: "my_reptiles#edit", as: "edit_my_reptile"
