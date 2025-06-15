@@ -3,7 +3,7 @@ FactoryBot.define do
       species { "レオパードゲッコー" }
       morph { "ノーマル" }
       priority { 1 }
-      memo { "欲しい爬虫類のメモ" }
+      memo { "テストメモ" }
       association :user
     end
   end

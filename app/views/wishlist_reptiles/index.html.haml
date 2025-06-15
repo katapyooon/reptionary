@@ -1,2 +1,11 @@
-%h1 WishlistReptiles#index
-%p Find me in app/views/wishlist_reptiles/index.html.haml
+.wishlist-reptiles
+  %h1 欲しい爬虫類リスト
+
+  = link_to '新規登録', new_user_wishlist_reptile_path(@user), class: 'add-button'
+
+  .wishlist-grid
+    - @wishlist_reptiles.each do |reptile|
+      .wishlist-card
+        %h3= reptile.species
+        %p= "モルフ: #{reptile.morph}" if reptile.morph.present?
+        %p= "優先度: #{reptile.priority}" if reptile.priority.present?
