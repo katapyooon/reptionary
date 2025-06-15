@@ -38,6 +38,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # wishlist_reptiles のルーティング
+  resources :users do
+    resources :wishlist_reptiles
+  end
+
   get "/my_reptiles/:id/edit", to: "my_reptiles#edit", as: "edit_my_reptile"
   patch "/my_reptiles/:id", to: "my_reptiles#update", as: "update_my_reptile"
 

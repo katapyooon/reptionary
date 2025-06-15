@@ -1,11 +1,9 @@
 FactoryBot.define do
     factory :wishlist_reptile do
-      name { "Test Reptile" }
-      species { "Test Species" }
-      description { "Test Description" }
-      desired_price { 10000 }
+      species { "レオパードゲッコー" }
+      morph { "ノーマル" }
       priority { 1 }
-      notes { "Test Notes" }
+      memo { "欲しい爬虫類のメモ" }
       association :user
     end
   end
