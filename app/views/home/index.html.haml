@@ -2,7 +2,8 @@
 %div.icon-container
   = link_to user_my_reptiles_path(user_id: current_user.id), class: "dli-home" do
     %div.dli-home
-  %div#star-five
+  = link_to user_wishlist_reptiles_path(current_user), class: "star-link" do
+    %div#star-five
   %div.dli-user-circle
     %span
 
