@@ -1,11 +1,27 @@
 .wishlist-reptiles
   %h1 欲しい爬虫類リスト
 
-  = link_to '新規登録', new_user_wishlist_reptile_path(@user), class: 'add-button'
+  = link_to '新規登録', new_user_wishlist_reptile_path(@user), class: 'wishlist-add-button'
 
-  .wishlist-grid
-    - @wishlist_reptiles.each do |reptile|
-      .wishlist-card
-        %h3= reptile.species
-        %p= "モルフ: #{reptile.morph}" if reptile.morph.present?
-        %p= "優先度: #{reptile.priority}" if reptile.priority.present?
+  .wishlist-list
+    %table.wishlist-table
+      %thead
+        %tr
+          %th 種類
+          %th モルフ
+          %th 優先度
+          %th メモ
+          %th アクション
+      %tbody
+        - @wishlist_reptiles.each do |reptile|
+          %tr.wishlist-item
+            %td= reptile.species
+            %td= reptile.morph
+            %td= reptile.priority
+            %td= reptile.memo
+            %td.actions
+              = link_to '編集', edit_user_wishlist_reptile_path(@user, reptile), class: 'edit-link'
+              = button_to '削除', user_wishlist_reptile_path(@user, reptile), 
+                method: :delete, 
+                class: 'delete-button',
+                data: { confirm: '本当に削除しますか？' }
