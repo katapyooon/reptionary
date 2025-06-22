@@ -50,6 +50,6 @@ Rails.application.routes.draw do
   resources :my_reptiles
 
   # 利用規約関連のルーティング
-  get 'terms', to: 'footer#terms'
-  get 'privacy', to: 'footer#privacy'
+  get "terms", to: "footer#terms"
+  get "privacy", to: "footer#privacy"
 end
