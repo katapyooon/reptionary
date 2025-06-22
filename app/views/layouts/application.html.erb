@@ -17,21 +17,29 @@
     <% if notice %><p class="notice"><%= notice %></p><% end %>
     <% if alert %><p class="alert"><%= alert %></p><% end %>
     
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+    <div class="header">
+      <% if user_signed_in? %>
+        <p>
+          ログイン中: <%= current_user.id %>
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+        </p>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </div>
 
-    <%= yield %>
+    <main class="content">
+      <%= yield %>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <%= link_to "利用規約", terms_path, class: "footer-link" %>
+          <%= link_to "プライバシーポリシー", privacy_path, class: "footer-link" %>
+          <span class="copyright">© <%= Time.current.year %> Reptionary. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
-
-<% if user_signed_in? %>
-  <p>
-    ログイン中: <%= current_user.id %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  </p>
-<% else %>
-  <%= link_to "ログイン", new_user_session_path %>
-<% end %>

@@ -48,4 +48,8 @@ Rails.application.routes.draw do
 
   get "my_reptiles/top/:user_id", to: "my_reptiles#top", as: "my_reptiles_top"
   resources :my_reptiles
+
+  # 利用規約関連のルーティング
+  get 'terms', to: 'footer#terms'
+  get 'privacy', to: 'footer#privacy'
 end
