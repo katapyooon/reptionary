@@ -52,4 +52,5 @@ Rails.application.routes.draw do
   # 利用規約関連のルーティング
   get "terms", to: "footer#terms"
   get "privacy", to: "footer#privacy"
+  get "inquiry", to: "footer#inquiry"
 end

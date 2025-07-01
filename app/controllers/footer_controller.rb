@@ -4,4 +4,7 @@ class FooterController < ApplicationController
 
     def privacy
     end
+
+    def inquiry
+    end
 end
