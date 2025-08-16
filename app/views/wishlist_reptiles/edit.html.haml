@@ -1,2 +1,23 @@
-%h1 WishlistReptiles#edit
-%p Find me in app/views/wishlist_reptiles/edit.html.haml
+%h1 欲しい爬虫類リスト 編集
+
+= form_with(model: [@user, @wishlist_reptile], local: true) do |f|
+  .field
+    = f.label :species, "種類"
+    = f.text_field :species
+
+  .field
+    = f.label :morph, "モルフ"
+    = f.text_field :morph
+
+  .field
+    = f.label :priority, "優先度"
+    = f.number_field :priority
+
+  .field
+    = f.label :memo, "メモ"
+    = f.text_area :memo
+
+  .actions
+    = f.submit "更新", class: "update-button"
+
+= link_to "戻る", user_wishlist_reptiles_path(@user), class: "back-button"
