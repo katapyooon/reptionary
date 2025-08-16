@@ -58,7 +58,7 @@ RUN SECRET_KEY_BASE=dummy \
     bundle exec rails assets:precompile
 
 # Dockerfile
-COPY localhost.key localhost.crt /app/
+# COPY localhost.key localhost.crt /app/
 
 # Start the server
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
